@@ -1,0 +1,37 @@
+HEAP is a complete binary tree that comes with a Heap Order Property
+
+1. MAX HEAP - Parent node has value greater than all its children
+2. MIN HEAP - Parent node has value smaller than all its children
+
+Store heap in an Array
+
+            60
+           /  \
+          /    \
+         50    40
+        /  \
+       /    \
+      30    20
+
+ARRAY: [ x | 60 | 50 | 40 | 30 | 20 ]
+
+left child of node at ith index is at (2*i)th index
+right child of node at ith index is at (2*i + 1)th index
+
+ Insertion in heap:
+
+ 1. Insert at end
+ 2. Take it to correct position
+    2.1. Compare the newly inserted value to it's parent which is at index i/2, where i is index of newly inserted value
+    2.2. If parent has value lesser, swap them
+    2.3. Compare the new value to it's new parent, if parent is lesser, swap, else the heap is correct, so break
+
+
+Deletion in heap:
+
+--deleting the root node, ie node at 1st index of array
+
+1. Put the last node in array at index 1
+2. Decrement the size
+3. Compare the root node with children; if a child is greater, swap them
+4. Continue checking till you reach leaf node; if both children are smaller, break
