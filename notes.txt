@@ -35,3 +35,10 @@ Deletion in heap:
 2. Decrement the size
 3. Compare the root node with children; if a child is greater, swap them
 4. Continue checking till you reach leaf node; if both children are smaller, break
+
+Heap Sort:
+
+1. Swap arr[1] and arr[n]
+2. decrement size
+3. Heapify the root node
+4. repeat the steps until size is not 1

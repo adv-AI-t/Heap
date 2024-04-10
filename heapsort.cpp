@@ -18,15 +18,16 @@ class Heap{
             this->arr[i] = arr[i];
         size = n;
     }
+    
     void heapify(int n, int i)
     {
         int largest = i;
         int leftIndex = 2*i;
         int rightIndex = 2*i +1;
 
-        if(leftIndex<n && arr[largest]<arr[leftIndex])
+        if(leftIndex<=n && arr[largest]<arr[leftIndex])
         swap(arr[largest], arr[leftIndex]);
-        if(rightIndex<n && arr[largest]<arr[rightIndex])
+        if(rightIndex<=n && arr[largest]<arr[rightIndex])
         swap(arr[largest], arr[rightIndex]);
 
         if(largest!=i)
@@ -44,41 +45,16 @@ class Heap{
         } 
     }
 
-    void deleteRoot()
-    {
-        if(size==0)
-        return;
-
-        arr[1] = arr[size];
-        size--;
-        int ptr = 1;
-        while(ptr<size)
-        {
-            int leftIndex = ptr*2;
-            int rightIndex = ptr*2 + 1;
-            if(leftIndex<size && arr[ptr]<arr[leftIndex])
-            {
-                swap(arr[ptr], arr[leftIndex]);
-                ptr = leftIndex;
-            }    
-            else if(rightIndex<size && arr[ptr]<arr[rightIndex])
-            {
-                swap(arr[ptr], arr[rightIndex]);
-                ptr = rightIndex;
-            }
-            else
-            return;
-        }
-    }
 
     void heapSort()
     {
-        while(size>=0)
+        int n=size;
+        while(n>1)
         {
-            cout<<arr[1]<<" ";
-            deleteRoot();
-            size--;
-        }
+            swap(arr[1], arr[n]);
+            n--;
+            heapify(n, 1);
+         }
     }
 };
 
@@ -93,5 +69,6 @@ int main()
     h1.heapify(n, i);
     cout<<"After sorting:\n";
     h1.heapSort();
+    h1.showHeap();
     return 0;
 }
