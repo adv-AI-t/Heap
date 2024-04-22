@@ -30,11 +30,11 @@ class Heap{
         if(rightIndex<=n && arr[largest]<arr[rightIndex])
         swap(arr[largest], arr[rightIndex]);
 
-        if(largest!=i)
-        {
-            swap(arr[largest], arr[i]);
-            heapify(n, largest);
-        }
+        // if(largest!=i)
+        // {
+        //     swap(arr[largest], arr[i]);
+        //     heapify(n, largest);
+        // }
     }
 
     void showHeap()
