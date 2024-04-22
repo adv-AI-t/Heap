@@ -26,15 +26,15 @@ class Heap{
         int rightIndex = 2*i +1;
 
         if(leftIndex<=n && arr[largest]<arr[leftIndex])
-        swap(arr[largest], arr[leftIndex]);
+        largest = leftIndex;
         if(rightIndex<=n && arr[largest]<arr[rightIndex])
-        swap(arr[largest], arr[rightIndex]);
+        largest = rightIndex;
 
-        // if(largest!=i)
-        // {
-        //     swap(arr[largest], arr[i]);
-        //     heapify(n, largest);
-        // }
+        if(largest!=i)
+        {
+            swap(arr[largest], arr[i]);
+            heapify(n, largest);
+        }
     }
 
     void showHeap()
@@ -70,5 +70,5 @@ int main()
     cout<<"After sorting:\n";
     h1.heapSort();
     h1.showHeap();
-    return 0;
+    return 0;  
 }
